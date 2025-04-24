@@ -8,10 +8,24 @@ print("'''''''''''''''''''''''''''''''''''''''''''")
 
 # Datos de cliente
 # Ingresar nombre de cliente
-Nombre_del_cliente = str(input("Ingresa tu nombre=> "))
+while True:
+    try:
+        Nombre_de_cajero = str(input("Ingresa nombre del cajero =>"))
+        if Nombre_de_cajero == "" :
+            print("Por favor confirmar nombre del cajero!")
+            continue
+        break
+    except ValueError:
+        print()   
+
+print("''''''''''''''''''''''''''''''''''''''''''''''''''''''")
+print()        
+# Datos de cliente
+# Ingresar nombre de cliente
+Nombre_del_cliente = str(input("Ingresa nombre de cliente=> "))
 # Codigo para que no lea numeros como caracteres de texto
 Nombre_del_cliente = "".join(char for char in Nombre_del_cliente if not char.isdigit())
-print(Nombre_del_cliente)
+#print(Nombre_del_cliente)
 # Hola!, "nombre del cliente"
 print("'''''''''''''''''''''''''''''''''''''''''''")
 print("        Hola!", Nombre_del_cliente )
@@ -76,8 +90,8 @@ print(f"Ingresa el valor de descuento del {Nombre_del_producto}:")
 while True:
     try:
         Valor_de_descuento_del_producto = float(input("Ingrese el valor de descuento=>"))
-        if Valor_de_descuento_del_producto < 0:
-            print("El Valor no debe ser negativo. Intenta de nuevo.")
+        if Valor_de_descuento_del_producto<0 or Valor_de_descuento_del_producto>100:
+            print("El Valor no debe ser negativo,ni puede ser mayor a 100%. Intenta de nuevo.")
             continue
         break
     except ValueError:
@@ -126,7 +140,7 @@ print(f"Numero de identidad       {Numero_de_documento}")
 print(f"Valor del producto       ${Precio_unitario:.2f}")
 print(f"Cantidad de producto      {Cantidad_de_productos:.0f}")
 print(f"Valor por los productos  ${valor_de_la_compra:.2f}")
-print(f"valor de descuento        {Valor_de_descuento_del_producto:.0f}%")
+print(f"valor de descuento        {Valor_de_descuento_del_producto:}%")
 print(f"Valor con descuento a pagar   ${Valor_total_del_producto_con_descuento:.2f}")
 print(f"Valor ahorrado            ${valor_de_la_compra - Valor_total_del_producto_con_descuento:.2f}")
 print(f"Metodo de pago            {Metodo_de_pago}")
