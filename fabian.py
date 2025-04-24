@@ -8,6 +8,8 @@ print("'''''''''''''''''''''''''''''''''''''''''''")
 
 # Datos de cliente
 Nombre_del_cliente = str(input("Ingresa tu nombre=> "))
+Nombre_del_cliente = "".join(char for char in Nombre_del_cliente if not char.isdigit())
+print(Nombre_del_cliente)
 # Hola!, "nombre del cliente"
 print("'''''''''''''''''''''''''''''''''''''''''''")
 print("        Hola!", Nombre_del_cliente )
@@ -36,13 +38,13 @@ print(f"Valor a pagar ${Precio_unitario * Cantidad_de_productos:.2f}")
 print("''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
 print("                        Formato de pedido                       ")
 print("  Nombre Del Producto       Precio Unitario       Cantidad")
-print(f"      {Nombre_del_producto}                     $ {Precio_unitario}                {Cantidad_de_productos}")
+print(f"    {Nombre_del_producto}                     $ {Precio_unitario}                {Cantidad_de_productos}")
 print("''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
 
 
 # Ingresa "si" tu producto tienes descuento, sino tiene di "no"
-print("Ingresa Si o No,el producto tiene descuento")
-Si_O_No = bool(input(""))
+#print("Ingresa Si o 0,el producto tiene descuento")
+print("Ingresa el descuento (0 si no hay descuento)")
 print("'''''''''''''''''''''''''''''''''''''''''''''''''''")
 
 # Valor de descuento del producto
@@ -69,6 +71,22 @@ Valor_en_efectivo = float(input("Ingresa el valor en efectivo $"))
 print(f"Valor pagado en efectivo ${Valor_en_efectivo:.2f}")
 print(f"Valor devuelto ${Valor_en_efectivo - Valor_total_del_producto_con_descuento:.2f}")
 print("''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
+
+
+# Factura de compra
+print("'''''''''''''''''''''''''''''''''''''''''''''''''''")
+print("            Factura de compra                  ")
+print(f"Nombre del cliente        {Nombre_del_cliente}")
+print(f"Numero de identidad       {Numero_de_documento}")
+print(f"Valor del producto       ${Precio_unitario}")
+print(f"Cantidad de producto      {Cantidad_de_productos}")
+print(f"Valor por los productos  ${valor_de_la_compra:.2f}")
+print(f"valor de descuento        {Valor_de_descuento_del_producto}%")
+print(f"Valor con descuento a pagar   ${Valor_total_del_producto_con_descuento:.2f}")
+print(f"Valor ahorrado            ${valor_de_la_compra - Valor_total_del_producto_con_descuento:.2f}")
+print(f"Metodo de pago            {Metodo_de_pago}")
+print(f"Recibido en efectivo      ${Valor_en_efectivo:.2f}")
+print(f"Valor devuelto           ${Valor_en_efectivo - Valor_total_del_producto_con_descuento:.2f}")
 
 
 # Muchas Gracias por su comprar Nombre_de_cliente
