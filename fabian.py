@@ -10,9 +10,9 @@ print("'''''''''''''''''''''''''''''''''''''''''''")
 # Ingresar nombre de cliente
 while True:
     try:
-        Nombre_de_cajero = str(input("Ingresa nombre del cajero =>"))
-        if Nombre_de_cajero == "" :
-            print("Por favor confirmar nombre del cajero!")
+        Numero_de_cajero = int(input("Ingresa numero del cajero =>"))
+        if Numero_de_cajero == "" :
+            print("Por favor confirmar numero del cajero!")
             continue
         break
     except ValueError:
@@ -31,7 +31,17 @@ print("'''''''''''''''''''''''''''''''''''''''''''")
 print("        Hola!", Nombre_del_cliente )
 print("'''''''''''''''''''''''''''''''''''''''''''")
 # Ingresar Numero de identidad
-Numero_de_documento = int(input("Ingresa numero de identidad=> "))
+#Numero_de_documento = int(input("Ingresa numero de identidad=> "))
+
+while True:
+    try:
+        Numero_de_documento = int(input("Ingresa numero de identidad=>"))
+        if Numero_de_documento == "":
+            print("Por favor confirmar numero de identidad")
+            continue
+        break
+    except ValueError:
+        print()
 
 # Datos Guardados del cliente
 print("''''''''''''''''''''''''''''''''''''''''''''")
@@ -140,7 +150,7 @@ print(f"Numero de identidad       {Numero_de_documento}")
 print(f"Valor del producto       ${Precio_unitario:.2f}")
 print(f"Cantidad de producto      {Cantidad_de_productos:.0f}")
 print(f"Valor por los productos  ${valor_de_la_compra:.2f}")
-print(f"valor de descuento        {Valor_de_descuento_del_producto:}%")
+print(f"valor de descuento        {Valor_de_descuento_del_producto:.0f}%")
 print(f"Valor con descuento a pagar   ${Valor_total_del_producto_con_descuento:.2f}")
 print(f"Valor ahorrado            ${valor_de_la_compra - Valor_total_del_producto_con_descuento:.2f}")
 print(f"Metodo de pago            {Metodo_de_pago}")
