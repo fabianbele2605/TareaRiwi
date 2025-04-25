@@ -7,23 +7,23 @@ print("'''''''''''''''''''''''''''''''''''''''''''")
 print("'''''''''''''''''''''''''''''''''''''''''''")
 
 # Datos de cliente
-# Ingresar nombre de cliente
+# Ingresar numero de cajero "tiene que ser 0 hasta 9999", sino no te dejara pasar
 while True:
     try:
-        Numero_de_cajero = int(input("Ingresa numero del cajero =>"))
+        Numero_de_cajero = int(input("Ingresa numero del cajero 🏧=>"))
         if Numero_de_cajero == "" or Numero_de_cajero <0 or Numero_de_cajero>9999:
             print("Numero de cajero incorrecto, Por favor confirmar numero del cajero!")
             continue
         break
     except ValueError:
-        print()   
+        print("Error al ingresar datos!")   
 
 print("''''''''''''''''''''''''''''''''''''''''''''''''''''''")
 print()        
 # Datos de cliente
 # Ingresar nombre de cliente
-Nombre_del_cliente = str(input("Ingresa nombre de cliente=> "))
-# Codigo para que no lea numeros como caracteres de texto
+Nombre_del_cliente = str(input("Ingresa nombre de cliente 👤=> "))
+# Codigo para que no imprima numeros como caracteres de texto
 Nombre_del_cliente = "".join(char for char in Nombre_del_cliente if not char.isdigit())
 #print(Nombre_del_cliente)
 # Hola!, "nombre del cliente"
@@ -35,13 +35,13 @@ print("'''''''''''''''''''''''''''''''''''''''''''")
 
 while True:
     try:
-        Numero_de_documento = int(input("Ingresa numero de identidad=>"))
+        Numero_de_documento = int(input("Ingresa numero de identidad 🪪=>"))
         if Numero_de_documento == "" or Numero_de_documento < 0 or Numero_de_documento >9999999999:
             print("Numero de identidad incorrecto, Por favor confirmar numero de identidad")
             continue
         break
     except ValueError:
-        print()
+        print("Error al ingresar datos!")
 
 # Datos Guardados del cliente
 print("''''''''''''''''''''''''''''''''''''''''''''")
@@ -53,11 +53,11 @@ print("''''''''''''''''''''''''''''''''''''''''''''")
 
 # Sistema de ingreso de productos,precios y cantidad
 
-Nombre_del_producto = str(input("Ingrese el nombre del producto=> "))
+Nombre_del_producto = str(input("Ingrese el nombre del producto => "))
 
 while True:
     try:
-        Precio_unitario = float(input("Ingrese el precio unitario=>"))
+        Precio_unitario = float(input("Ingrese el precio unitario 💲=>"))
         if Precio_unitario < 0:
             print("El precio no debe ser negativo. Intenta de nuevo.")
             continue
@@ -68,7 +68,7 @@ while True:
         
 while True:
     try:
-        Cantidad_de_productos = float(input("Ingrese la cantidad de productos=>"))
+        Cantidad_de_productos = float(input("Ingrese la cantidad de productos📦=>"))
         if Cantidad_de_productos < 0:
             print("La cantidad no debe ser negativo. Intenta de nuevo.")
             continue
@@ -144,8 +144,10 @@ match Metodo_de_pago:
             try:
                 Valor_en_efectivo = float(input("Ingrese el valor en efectivo=>"))
                 while Valor_en_efectivo < 0 :
-                    Valor_en_efectivo = float(input("El valor no debe ser negativo. Intenta de nuevo."))
-                
+                    print("Dinero insuficiente. nececitas mas dinero!")
+                    Valor_en_efectivo = float(input("Ingresa el valor en efectivo=>."))
+                    
+
                 break
             except ValueError:
                 print("Entrada invalida. Por favor, Ingresa un numero valido para el valor.")
@@ -209,7 +211,7 @@ print(f"Valor con descuento a pagar   ${Valor_total_del_producto_con_descuento:.
 print(f"Valor ahorrado            ${valor_de_la_compra - Valor_total_del_producto_con_descuento:.2f}")
 print(f"Metodo de pago            {metodos[Metodo_de_pago]}")
 if Metodo_de_pago == 1:
-    print("Valor pagado en efectivo", Valor_en_efectivo)
+    print(f"Valor pagado en efectivo, {Valor_en_efectivo:.2f}")
     print(f"Valor devuelto           ${Valor_en_efectivo - Valor_total_del_producto_con_descuento:.2f}")
 elif Metodo_de_pago == 2:
     print(f"Valor pagado en transferencia, {Valor_de_transferencia:.2f}")
