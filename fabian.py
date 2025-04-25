@@ -126,7 +126,7 @@ print("""Que metodo de pago desea pagar:
 3. Datafono 💳""")
 
 # Selecion de metodo de pago
-
+metodos=["nada","efectivo", "transferencia", "datafono"]
 while True:
     try:
         Metodo_de_pago = int(input("Ingrese el metodo de pago=>"))
@@ -143,7 +143,7 @@ match Metodo_de_pago:
         while True:
             try:
                 Valor_en_efectivo = float(input("Ingrese el valor en efectivo=>"))
-                while Valor_en_efectivo < 0:
+                while Valor_en_efectivo < 0 :
                     Valor_en_efectivo = float(input("El valor no debe ser negativo. Intenta de nuevo."))
                 
                 break
@@ -169,6 +169,7 @@ match Metodo_de_pago:
             except ValueError:
                 print("Ingresar el valor correcto de la comprar.")
         print(f"Valor pagado en transferencia ${Valor_de_transferencia:.2f}")
+        print(f"Valor devuelto ${Valor_de_transferencia - Valor_total_del_producto_con_descuento:.2f}")
         print("''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
         
         
@@ -176,7 +177,7 @@ match Metodo_de_pago:
         print("Datafono 💳")
         while True:
             try:
-                Valor_pagado_datafono = float(input("Ingrese el valor de pago"))
+                Valor_pagado_datafono = float(input("Ingrese el valor de pago=>"))
                 while Valor_pagado_datafono !=Valor_total_del_producto_con_descuento:
                     print("Tarjeta rechazada!. Saldo insuficiente!")
                     Valor_pagado_datafono = float(input("Ingresa el valor de la compra=>"))
@@ -206,10 +207,16 @@ print(f"Valor por los productos  ${valor_de_la_compra:.2f}")
 print(f"valor de descuento        {Valor_de_descuento_del_producto:.0f}%")
 print(f"Valor con descuento a pagar   ${Valor_total_del_producto_con_descuento:.2f}")
 print(f"Valor ahorrado            ${valor_de_la_compra - Valor_total_del_producto_con_descuento:.2f}")
-print(f"Metodo de pago            {Metodo_de_pago}")
-print(f"Recibido en efectivo      ${Valor_en_efectivo:.2f}")
-print(f"Valor devuelto           ${Valor_en_efectivo - Valor_total_del_producto_con_descuento:.2f}")
+print(f"Metodo de pago            {metodos[Metodo_de_pago]}")
+if Metodo_de_pago == 1:
+    print("Valor pagado en efectivo", Valor_en_efectivo)
+    print(f"Valor devuelto           ${Valor_en_efectivo - Valor_total_del_producto_con_descuento:.2f}")
+elif Metodo_de_pago == 2:
+    print("Valor pagado en transferencia", Valor_de_transferencia)
+elif Metodo_de_pago == 3:
+    print("Valor pagado por datafono", Valor_pagado_datafono)
 
+print("''''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
 
 # Muchas Gracias por su comprar Nombre_de_cliente
 print(f"Muchas gracias por tu compra {Nombre_del_cliente}!")
