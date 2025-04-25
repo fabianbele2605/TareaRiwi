@@ -11,8 +11,8 @@ print("'''''''''''''''''''''''''''''''''''''''''''")
 while True:
     try:
         Numero_de_cajero = int(input("Ingresa numero del cajero =>"))
-        if Numero_de_cajero == "" :
-            print("Por favor confirmar numero del cajero!")
+        if Numero_de_cajero == "" or Numero_de_cajero <0 or Numero_de_cajero>9999:
+            print("Numero de cajero incorrecto, Por favor confirmar numero del cajero!")
             continue
         break
     except ValueError:
@@ -36,8 +36,8 @@ print("'''''''''''''''''''''''''''''''''''''''''''")
 while True:
     try:
         Numero_de_documento = int(input("Ingresa numero de identidad=>"))
-        if Numero_de_documento == "":
-            print("Por favor confirmar numero de identidad")
+        if Numero_de_documento == "" or Numero_de_documento < 0 or Numero_de_documento >9999999999:
+            print("Numero de identidad incorrecto, Por favor confirmar numero de identidad")
             continue
         break
     except ValueError:
@@ -86,13 +86,13 @@ print(f"Valor a pagar ${Precio_unitario * Cantidad_de_productos:.2f}")
 print("''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
 print("                        Formato de pedido                       ")
 print("  Nombre Del Producto       Precio Unitario       Cantidad")
-print(f"    {Nombre_del_producto}                     $ {Precio_unitario:.2f}                {Cantidad_de_productos:.0f}")
+print(f"  {Nombre_del_producto}                   $ {Precio_unitario:.2f}                 {Cantidad_de_productos:.0f}")
 print("''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
 
 
 # Ingresa "si" tu producto tienes descuento, sino tiene di "no"
 #print("Ingresa Si o 0,el producto tiene descuento")
-print("Ingresa el descuento (0 si no hay descuento)")
+print("Ingresa valor el descuento (0 si no hay descuento)")
 print("'''''''''''''''''''''''''''''''''''''''''''''''''''")
 
 # Valor de descuento del producto
@@ -119,27 +119,80 @@ print(f"Valor ahorrado ${valor_de_la_compra - Valor_total_del_producto_con_descu
 print("'''''''''''''''''''''''''''''''''''''''''''''''''''''''")
 
 # Metodo de pago
-print("Que metodo de pago desea pagar")
-Metodo_de_pago = str(input("Ingresa el metodo de pago=>"))
-Metodo_de_pago = "".join(char for char in Metodo_de_pago if not char.isdigit())
-print(Metodo_de_pago)
+
+print("""Que metodo de pago desea pagar:
+1. Efectivo 💵
+2. Transferencia 📱
+3. Datafono 💳""")
+
+# Selecion de metodo de pago
+
+while True:
+    try:
+        Metodo_de_pago = int(input("Ingrese el metodo de pago=>"))
+        if Metodo_de_pago > 3 or Metodo_de_pago < 1:
+            print()
+        break
+    except ValueError:
+        print("Entrada invalida. Por favor, Ingresa bien el metodo de pago.")
+
+
+match Metodo_de_pago:
+    case 1 :
+        print("Efectivo 💵")
+        while True:
+            try:
+                Valor_en_efectivo = float(input("Ingrese el valor en efectivo=>"))
+                while Valor_en_efectivo < 0:
+                    Valor_en_efectivo = float(input("El valor no debe ser negativo. Intenta de nuevo."))
+                
+                break
+            except ValueError:
+                print("Entrada invalida. Por favor, Ingresa un numero valido para el valor.")
+                
+        # Valor pagado y valor devuelto
+        print(f"Valor pagado en efectivo ${Valor_en_efectivo:.2f}")
+        print(f"Valor devuelto ${Valor_en_efectivo - Valor_total_del_producto_con_descuento:.2f}")
+        print("''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
+
+    
+    case 2 :
+        print("Transferencia 📱")
+        while True:
+            try:
+                Valor_de_transferencia = float(input("Ingrese el valor de tranferencia=>"))
+                while Valor_de_transferencia !=Valor_total_del_producto_con_descuento:
+                    print("Error de pago!. Monto insufuciente!")
+                    Valor_de_transferencia = float(input("Ingrese el valor de tranferencia=>"))
+                    
+                break
+            except ValueError:
+                print("Ingresar el valor correcto de la comprar.")
+        print(f"Valor pagado en transferencia ${Valor_de_transferencia:.2f}")
+        print("''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
+        
+        
+    case 3 :
+        print("Datafono 💳")
+        while True:
+            try:
+                Valor_pagado_datafono = float(input("Ingrese el valor de pago"))
+                while Valor_pagado_datafono !=Valor_total_del_producto_con_descuento:
+                    print("Tarjeta rechazada!. Saldo insuficiente!")
+                    Valor_pagado_datafono = float(input("Ingresa el valor de la compra=>"))
+                    
+                break
+            except ValueError:
+                print("Ingresa nuevamente tu pago")
+        print(f"Valor pagado por datafono ${Valor_pagado_datafono}")
+
+#Metodo_de_pago = str(input("Ingresa el metodo de pago=>"))
+#Metodo_de_pago = "".join(char for char in Metodo_de_pago if not char.isdigit())
+#print(Metodo_de_pago)
 
 # Ingresa el valor en efectivo
 #Valor_en_efectivo = float(input("Ingresa el valor en efectivo $"))
-while True:
-    try:
-        Valor_en_efectivo = float(input("Ingrese el valor en efectivo=>"))
-        if Valor_en_efectivo < 0:
-            print("El valor no debe ser negativo. Intenta de nuevo.")
-            continue
-        break
-    except ValueError:
-        print("Entrada invalida. Por favor, Ingresa un numero valido para el valor.")
 
-# Valor pagado y valor devuelto
-print(f"Valor pagado en efectivo ${Valor_en_efectivo:.2f}")
-print(f"Valor devuelto ${Valor_en_efectivo - Valor_total_del_producto_con_descuento:.2f}")
-print("''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
 
 
 # Factura de compra
