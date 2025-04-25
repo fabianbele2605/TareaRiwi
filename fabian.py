@@ -212,9 +212,9 @@ if Metodo_de_pago == 1:
     print("Valor pagado en efectivo", Valor_en_efectivo)
     print(f"Valor devuelto           ${Valor_en_efectivo - Valor_total_del_producto_con_descuento:.2f}")
 elif Metodo_de_pago == 2:
-    print("Valor pagado en transferencia", Valor_de_transferencia)
+    print(f"Valor pagado en transferencia, {Valor_de_transferencia:.2f}")
 elif Metodo_de_pago == 3:
-    print("Valor pagado por datafono", Valor_pagado_datafono)
+    print(f"Valor pagado por datafono, {Valor_pagado_datafono:.2f}")
 
 print("''''''''''''''''''''''''''''''''''''''''''''''''''''''''''")
 
