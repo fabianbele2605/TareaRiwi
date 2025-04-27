@@ -1,4 +1,3 @@
-'''
 # ejemplo de uso de ciclos for con una lista
 
 frutas = ["manzana","pera","mango"]
@@ -52,7 +51,7 @@ while True:
     
     print(f"Escribiste: {texto}")
     
-'''
+
 
 # ejemplo de Continue
 
