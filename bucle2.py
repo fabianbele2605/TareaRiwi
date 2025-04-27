@@ -39,10 +39,26 @@ for Numero in Numeros:
 else:
      print(f"Ningun numero en la lista es mayor que {Umbral}.")
      
-'''
+
 
 # ejemplo 2
 
 while True:
-    texto = input("Escribe algo(o'salir'para terminar):")
+    texto = input("Escribe algo(o'salir'para terminar:")
     
+    if texto == "salir":
+        print("Adios")
+        break
+    
+    print(f"Escribiste: {texto}")
+    
+'''
+
+# ejemplo de Continue
+
+numeros = [1,2,3,4,5,6,7,8,9]
+
+for numero in numeros:
+    if numero %2 != 0:
+        continue
+    print(f"Numero:{numero}")
