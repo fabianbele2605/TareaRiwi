@@ -1,59 +1,91 @@
-# Primero para comenzar el codigo que todos conocemos "Hola mundo"
+#Determinar signo y paridad
 
-print("Hola mundo")
+signo_numero = int(input("Ingresa el numero =>"))
 
-# Tipos de datos
-
-Numero_enteros = int  #ejemplo => 20
-Numero_flotantes = float #ejemplo => 20.5
-Cadena_de_texto = str #ejemplo => "hola mundo"
-Booleanos = bool #ejemplo => true y false
-
-# ejemplos en ejecucion
-
-#Numero enteros (int)
-numeros_positivos = 10
-numeros_negativos = -10
-numero_neutro = 0
-
-print(type(numeros_positivos).__name__)
-print(type(numeros_negativos).__name__)
-print(type(numero_neutro).__name__)
-
-# Entradas de datos
-primer_numero_ingresado = float(input("Ingrese el primer numero: "))
-segundo_numero_ingresado = float(input("Ingrese el segudno numero: "))
-
-operacion = input("Escribir el tipo de operacion: ")
-
-
-# Procesamiento
-
-if operacion == "suma": 
-   resultado = primer_numero_ingresado + segundo_numero_ingresado
-
-if operacion == "recta": 
-   resultado = primer_numero_ingresado - segundo_numero_ingresado
-
-if operacion == "multiplicacion":
-   resultado = primer_numero_ingresado * segundo_numero_ingresado
-   
-if operacion == "division":
-   resultado = primer_numero_ingresado / segundo_numero_ingresado
-
-print("El resuldo es", resultado)
-
-# para corregir el valor sea int y no float
-print(f"El resultado es {resultado:.0f}")
-
-
-# Ingreso de datos por consola
-
-nombre=input("ingresar tu nombre=>")
-apellido=input("ingresar tu apellido=>")
-edad=input("ingresa tu edad=>")
-
-print(f"hola soy{nombre} {apellido} y tengo {edad} años")
+    
+if signo_numero > 0:
+    print("Tu numero es positivo.")
+elif signo_numero < 0:
+    print("Tu numero es negativo.")
+else:
+    print("Tu numero es cero")
+    
+if signo_numero != 0:   
+    if signo_numero %2 ==0:
+        print("tu numero es par")
+    else:  
+        print("Tu numero es impar")
+        
 
 
 
+
+
+#Calificacion de edad
+
+edadCalificacion = int(input("Ingresa tu edad=>"))
+
+if edadCalificacion >0 and edadCalificacion <18:
+    print("Eres menor de edad.")
+
+elif edadCalificacion >=18 and edadCalificacion <=30:
+    print("Eres adulto joven.")
+    
+elif edadCalificacion >=31 and edadCalificacion <=65:
+    print("Eres adulto maduro.")
+    
+elif edadCalificacion >=65 and edadCalificacion <=100:
+    print("Eres un adulto mayor")
+    
+else:
+    print("Ya eres un inmortal!.")
+    
+    
+    
+## Tarifa de transporte según día y hora
+
+dia_laborable = (input("Ingresa si el dia es laborable? (S/N): ")).upper()
+
+if dia_laborable == "N":
+    print("Fin de semana!.")
+    
+elif dia_laborable == "S":
+    hora = int(input("Ingresa la hora (0-23): "))
+    if (7 <= hora <= 9) or (17 <= hora <= 19):
+        tarifa = "Hora pico"
+    else:
+        tarifa = "Hora normal"
+    print(f"La tarifa aplicada es: {tarifa}")
+        
+else:
+    tarifa = "Entrada invalida"
+    
+
+#Descuento en tienda VIP
+
+codigoCorrecto = "Noah26"
+codigoVIP = ""
+Valor_compra = int(input("Ingresa el valor de la compra=>"))
+Cliente_VIP = input("Ingresa si eres cliente? (S/N): ").upper()
+ 
+if Cliente_VIP == "N":
+    if Valor_compra>=500:
+                descuento = 0.05
+                print("No eres VIP, tienes descuento de 10%")
+    else:
+                print("No eres VIP, no tienes descuento!")
+                
+elif Cliente_VIP == "S":
+    while codigoVIP != codigoCorrecto:
+        codigoVIP = str(input("Introducir codigo VIP!=>"))
+    else:
+        print("Codigo correcto VIP!")
+    if Valor_compra>=500:
+                descuento = 0.20
+                print("Eres VPI, tienes un descuento de 20%")
+    else:
+                descuento = 0.10
+                print("Eres VIP, tienes descuento de 10%")
+                
+Valor_final = Valor_compra * (1 - descuento)
+print(f"Tu Valor a pagar es: {Valor_final:.2f}")
